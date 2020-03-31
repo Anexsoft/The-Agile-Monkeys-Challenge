@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="8.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CRM.Common.Mapper\CRM.Common.Mapper.csproj" />
+    <ProjectReference Include="..\CRM.Common.Validator\CRM.Common.Validator.csproj" />
+    <ProjectReference Include="..\CRM.Persistence.Database\CRM.Persistence.Database.csproj" />
+  </ItemGroup>
+
+</Project>
