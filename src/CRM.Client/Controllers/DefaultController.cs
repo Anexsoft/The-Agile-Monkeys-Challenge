@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 
 namespace CRM.Client.Controllers
 {
@@ -7,6 +8,7 @@ namespace CRM.Client.Controllers
     public class DefaultController : ControllerBase
     {
         [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         public string Get()
         {
             return "Running ..";

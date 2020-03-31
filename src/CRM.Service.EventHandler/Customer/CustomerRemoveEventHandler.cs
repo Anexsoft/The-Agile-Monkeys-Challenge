@@ -1,11 +1,11 @@
 ﻿using CRM.Persistence.Database;
-using CRM.Service.EventHandler.Commands;
+using CRM.Service.EventHandler.Customer.Commands;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace CRM.Service.EventHandler
+namespace CRM.Service.EventHandler.Customer
 {
     public class CustomerRemoveEventHandler :
         INotificationHandler<CustomerRemoveCommand>
@@ -18,16 +18,15 @@ namespace CRM.Service.EventHandler
             _context = context;
         }
 
-        public async Task Handle(CustomerRemoveCommand request, CancellationToken cancellationToken)
+        public async Task Handle(CustomerRemoveCommand command, CancellationToken cancellationToken)
         {
             var originalEntry = await _context.Customers.SingleAsync(x =>
-                x.CustomerId == request.CustomerId
+                x.CustomerId == command.CustomerId
             );
 
             // Soft delete
             originalEntry.IsDeleted = true;
 
-            _context.Update(originalEntry);
             await _context.SaveChangesAsync();
         }
     }

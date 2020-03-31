@@ -1,15 +1,14 @@
 ﻿using CRM.Common.Validator;
-using MediatR;
 using System.ComponentModel.DataAnnotations;
 
-namespace CRM.Service.EventHandler.Commands
+namespace CRM.Service.EventHandler.Customer.Commands
 {
-    public class CustomerCreateCommand : IRequest<int>
+    public abstract class CustomerBaseInformationCommand
     {
-        [Required, MinLength(2), MaxLength(20)]
+        [Required, MinLength(3), MaxLength(20)]
         [CrossSiteScripting]
         public string Name { get; set; }
-        [Required, MinLength(2), MaxLength(50)]
+        [Required, MinLength(3), MaxLength(50)]
         [CrossSiteScripting]
         public string Surname { get; set; }
     }

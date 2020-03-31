@@ -10,13 +10,19 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.2.1" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\CRM.Common.File\CRM.Common.File.csproj" />
     <ProjectReference Include="..\CRM.Common.LoggedIn\CRM.Common.LoggedIn.csproj" />
     <ProjectReference Include="..\CRM.Persistence.Database\CRM.Persistence.Database.csproj" />
     <ProjectReference Include="..\CRM.Service.EventHandler\CRM.Service.EventHandler.csproj" />
     <ProjectReference Include="..\CRM.Service.Query\CRM.Service.Query.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\images\" />
   </ItemGroup>
 
 

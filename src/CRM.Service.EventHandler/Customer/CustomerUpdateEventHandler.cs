@@ -1,11 +1,11 @@
 ﻿using CRM.Persistence.Database;
-using CRM.Service.EventHandler.Commands;
+using CRM.Service.EventHandler.Customer.Commands;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace CRM.Service.EventHandler
+namespace CRM.Service.EventHandler.Customer
 {
     public class CustomerUpdateEventHandler :
         INotificationHandler<CustomerUpdateCommand>
@@ -18,16 +18,15 @@ namespace CRM.Service.EventHandler
             _context = context;
         }
 
-        public async Task Handle(CustomerUpdateCommand request, CancellationToken cancellationToken)
+        public async Task Handle(CustomerUpdateCommand command, CancellationToken cancellationToken)
         {
             var originalEntry = await _context.Customers.SingleAsync(x =>
-                x.CustomerId == request.CustomerId
+                x.CustomerId == command.CustomerId
             );
 
-            originalEntry.Name = request.Name;
-            originalEntry.Surname = request.Surname;
+            originalEntry.Name = command.Name;
+            originalEntry.Surname = command.Surname;
 
-            _context.Update(originalEntry);
             await _context.SaveChangesAsync();
         }
     }

@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace CRM.Service.EventHandler.Commands
+namespace CRM.Service.EventHandler.Customer.Commands
 {
     public class CustomerRemoveCommand : INotification
     {

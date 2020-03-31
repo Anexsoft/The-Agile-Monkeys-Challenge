@@ -3,7 +3,7 @@ The CRM service is an API for customers' management.
 
 ## Architecture
 * The CRM service is a RESTFul API that implements a CQRS architecture pattern to separate concerns from business logic.
-* Command pattern and mediator were implemented to make easy unit tests.
+* Command and mediator patterns were implemented to make easy unit tests.
 * Persistence data layer uses Entity Framework Core.
 
 ## Requirements
@@ -17,16 +17,17 @@ The CRM service is an API for customers' management.
 - [x] SQL Injection
 - [X] XSS Prevention
 
-### Extra requeriments
+### Extra Requirements
 - [ ] Unit test
 - [ ] OAuth
 - [ ] Continuous Deployment
 - [ ] Docker/Vagrant or similar
 
 ### Notes
-* Generic paging was added to list whatever.
-* Automatic audit was implemented to avoid a manually codification from our developers.
-* Soft delete was implemented to avoid a real delete from the database.
+* Pagination was added to list customer information.
+* Automatic audit was implemented to add reference to who updated it.
+* Soft delete was implemented to avoid a real delete from database.
+* Swagger was added.
 
 ## Newcomers: ¡How to start!
 ToDo ..

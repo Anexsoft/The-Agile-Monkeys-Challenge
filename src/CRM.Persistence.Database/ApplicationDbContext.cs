@@ -2,13 +2,14 @@
 using CRM.Domain;
 using CRM.Persistence.Database.Configuration;
 using CRM.Persistence.Database.Extensions;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace CRM.Persistence.Database
 {
-    public class ApplicationDbContext : DbContext
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, string>
     {
         private readonly ICurrentUserService _currentUserService;
 
