@@ -1,14 +1,12 @@
-# The Agile Monkeys Challenge
-
-## The CRM Service
+# The Agile Monkeys Challenge - The CRM Service
 The CRM service is an API for customers' management.
 
-### Architecture
+## Architecture
 * The CRM service is a RESTFul API that implements a CQRS architecture pattern to separate concerns from business logic.
 * Command pattern and mediator were implemented to make easy unit tests.
 * Persistence data layer uses Entity Framework Core.
 
-### Requirements
+## Requirements
 - [x] List of customers
 - [x] Get a full customer information
 - [x] Create a new customer using validation criteria and reference who created it
@@ -19,13 +17,13 @@ The CRM service is an API for customers' management.
 - [x] SQL Injection
 - [X] XSS Prevention
 
-#### Extra requeriments
+### Extra requeriments
 - [ ] Unit test
 - [ ] OAuth
 - [ ] Continuous Deployment
 - [ ] Docker/Vagrant or similar
 
-#### Notes
+### Notes
 * Generic paging was added to list whatever.
 * Automatic audit was implemented to avoid a manually codification from our developers.
 * Soft delete was implemented to avoid a real delete from the database.
