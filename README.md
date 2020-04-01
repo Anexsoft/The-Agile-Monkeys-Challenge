@@ -7,15 +7,13 @@ The CRM service is an API for customers' management.
 * Persistence data layer uses Entity Framework Core.
 
 ## Requirements
-- [x] List of customers
-- [x] Get a full customer information
-- [x] Create a new customer using validation criteria and reference who created it
-- [x] Update a customer using validation criteria and reference who updated it
-- [x] Delete a customer
-- [X] Upload an image
-- [X] Authorization & Authentication
-- [x] SQL Injection
-- [X] XSS Prevention
+- [x] Endpoints to managment users
+- [x] Endpoints to managment Customers
+- [X] Attach an image to Customer
+- [X] Set/Remove admin role to User
+- [x] Validate endpoints with Authorization & Authentication
+- [x] Prevent SQL Injection
+- [X] Prevent XSS
 
 ### Extra Requirements
 - [X] Unit test
@@ -28,6 +26,7 @@ The CRM service is an API for customers' management.
 * **Automatic audit** was implemented to add reference to who updated it.
 * **Soft delete** was implemented to avoid a real delete from database.
 * **Swagger** was added.
+* **AspNetCore Identity** was added.
 * OAuth and Json Web Token was implemented using **Identity Server 4**.
 
 ## Newcomers: ¡How to start!
@@ -57,7 +56,7 @@ INSERT [dbo].[AspNetUserRoles] ([UserId], [RoleId], [Discriminator]) VALUES (N'1
 
 **Note**: *only for development environment*.
 
-### 5. API.CRM
-You can check our endpoints documentation on http://localhost:50000/swagger
+### 5. Endpoints
+You can check our endpoints documentation on http://localhost:50000/swagger after run the solution.
 
 ¡Happy Code 💪!
