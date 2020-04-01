@@ -13,9 +13,9 @@ namespace CRM.Persistence.Database.Configuration
             entityBuilder.Property(x => x.Surname).IsRequired().HasMaxLength(100);
 
             entityBuilder.HasMany(e => e.UserRoles)
-                    .WithOne(e => e.User)
-                    .HasForeignKey(e => e.UserId)
-                    .IsRequired();
+                .WithOne(e => e.User)
+                .HasForeignKey(e => e.UserId)
+                .IsRequired();
         }
     }
 }

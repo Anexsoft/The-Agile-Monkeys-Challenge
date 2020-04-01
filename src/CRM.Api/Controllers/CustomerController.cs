@@ -59,7 +59,7 @@ namespace CRM.Api.Controllers
         [Consumes(MediaTypeNames.Application.Json)]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> CreateAsync(CustomerCreateCommand notification)
+        public async Task<IActionResult> CreateAsync(CustomerCreateCommand command)
         {
             /* ModeState validation is automatic with ApiController
              * but I need this to replicate bad request status in my unit case. */
@@ -68,7 +68,7 @@ namespace CRM.Api.Controllers
                 return BadRequest(ModelState);
             }
 
-            var entryId = await _mediator.Send(notification);
+            var entryId = await _mediator.Send(command);
 
             return CreatedAtRoute(
                 "CustomerGetById",
@@ -81,10 +81,10 @@ namespace CRM.Api.Controllers
         [Consumes(MediaTypeNames.Application.Json)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> UpdateAsync(int id, CustomerUpdateCommand notification)
+        public async Task<IActionResult> UpdateAsync(int id, CustomerUpdateCommand command)
         {
-            notification.CustomerId = id;
-            await _mediator.Publish(notification);
+            command.CustomerId = id;
+            await _mediator.Publish(command);
 
             return NoContent();
         }

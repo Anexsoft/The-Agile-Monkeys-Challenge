@@ -14,11 +14,11 @@ namespace CRM.Service.EventHandler.Identity
         IRequestHandler<UserCreateCommand, string>
     {
         private readonly UserManager<ApplicationUser> _userManager;
-        private readonly ILogger<UserLoginEventHandler> _logger;
+        private readonly ILogger<UserCreateEventHandler> _logger;
 
         public UserCreateEventHandler(
             UserManager<ApplicationUser> userManager,
-            ILogger<UserLoginEventHandler> logger)
+            ILogger<UserCreateEventHandler> logger)
         {
             _userManager = userManager;
             _logger = logger;

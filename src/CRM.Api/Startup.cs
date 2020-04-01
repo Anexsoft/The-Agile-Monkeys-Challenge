@@ -1,4 +1,4 @@
-using CRM.Api.Configuration;
+using CRM.Api.IdentityServer;
 using CRM.Common.File;
 using CRM.Common.LoggedIn;
 using CRM.Common.Token;
@@ -81,8 +81,8 @@ namespace CRM.Api
                     .AddInMemoryIdentityResources(IdentityServerConfiguration.GetIdentityResources())
                     .AddInMemoryApiResources(IdentityServerConfiguration.GetApis())
                     .AddInMemoryClients(IdentityServerConfiguration.GetClients(Configuration))
-                    .AddAspNetIdentity<ApplicationUser>();
-            
+                    .AddAspNetIdentity<ApplicationUser>()
+                    .AddProfileService<ProfileService>();
 
             // Schema Authentication
             services.AddAuthentication(IdentityServerAuthenticationDefaults.AuthenticationScheme)

@@ -65,6 +65,8 @@ namespace CRM.Persistence.Database
         /// <param name="modelBuilder"></param>
         private void DomainConfiguration(ModelBuilder modelBuilder)
         {
+            new ApplicationUserConfiguration(modelBuilder.Entity<ApplicationUser>());
+            new ApplicationRoleConfiguration(modelBuilder.Entity<ApplicationRole>());
             new CustomerConfiguration(modelBuilder.Entity<Customer>());
         }
     }

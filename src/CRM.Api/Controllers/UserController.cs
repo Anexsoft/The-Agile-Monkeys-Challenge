@@ -15,7 +15,7 @@ using System.Threading.Tasks;
 
 namespace CRM.Api.Controllers
 {
-    [Authorize(AuthenticationSchemes = IdentityServerAuthenticationDefaults.AuthenticationScheme)]
+    [Authorize(AuthenticationSchemes = IdentityServerAuthenticationDefaults.AuthenticationScheme, Roles = "Admin")]
     [ApiController]
     [Route("v1/users")]
     [Produces(MediaTypeNames.Application.Json)]
@@ -61,11 +61,11 @@ namespace CRM.Api.Controllers
         [Consumes(MediaTypeNames.Application.Json)]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> CreateAsync(UserCreateCommand notification)
+        public async Task<IActionResult> CreateAsync(UserCreateCommand command)
         {
             try
             {
-                var entryId = await _mediator.Send(notification);
+                var entryId = await _mediator.Send(command);
 
                 return CreatedAtRoute(
                     "UserGetById",
@@ -87,10 +87,10 @@ namespace CRM.Api.Controllers
         [Consumes(MediaTypeNames.Application.Json)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> UpdateAsync(string id, UserUpdateCommand notification)
+        public async Task<IActionResult> UpdateAsync(string id, UserUpdateCommand command)
         {
-            notification.UserId = id;
-            await _mediator.Publish(notification);
+            command.UserId = id;
+            await _mediator.Publish(command);
 
             return NoContent();
         }

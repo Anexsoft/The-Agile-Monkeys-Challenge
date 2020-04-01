@@ -16,7 +16,8 @@ namespace CRM.Persistence.Database.Configuration
             var role = new ApplicationRole
             {
                 Id = "25fe6bec-401c-4157-9e3e-0819fd31e68b",
-                Name = "Admin"
+                Name = "Admin",
+                NormalizedName = "ADMIN"
             };
 
             entityBuilder.HasData(role);

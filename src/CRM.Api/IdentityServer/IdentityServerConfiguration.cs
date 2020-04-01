@@ -2,7 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using System.Collections.Generic;
 
-namespace CRM.Api.Configuration
+namespace CRM.Api.IdentityServer
 {
     public static class IdentityServerConfiguration
     {
