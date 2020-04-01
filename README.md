@@ -39,7 +39,7 @@ Change CRM.Api project port to 50000 as default.
 Change the connection string located in appsetting.json for your connection string.
 
 ### 3. Run pending migrations
-* Set as StartUp project CRM.Api.
+* Set as StartUp the CRM.Api project.
 * Open Nuget Console and choose CRM.Persistence.Database project.
 * Run update-database command.
 

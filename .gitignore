@@ -5,6 +5,7 @@
 
 # Custom paths
 src/CRM.Client/wwwroot/images/
+src/CRM.Client/tempkey.rsa
 
 # User-specific files
 *.suo
