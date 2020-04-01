@@ -34,7 +34,7 @@ namespace CRM.Client.Controllers
 
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public async Task<DataCollection<UserDto>> GetAll(int page = 1, int take = 10)
+        public async Task<DataCollection<UserDto>> GetAllAsync(int page = 1, int take = 10)
         {
             return await _userQueryService.GetAllAsync(page, take);
         }
@@ -42,7 +42,7 @@ namespace CRM.Client.Controllers
         [HttpGet("{id}", Name = "UserGetById")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<ActionResult<UserDto>> Get(string id)
+        public async Task<ActionResult<UserDto>> GetAsync(string id)
         {
             var result = await _userQueryService.GetAsync(id);
 
@@ -58,7 +58,7 @@ namespace CRM.Client.Controllers
         [Consumes(MediaTypeNames.Application.Json)]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> Create(UserCreateCommand notification)
+        public async Task<IActionResult> CreateAsync(UserCreateCommand notification)
         {
             try
             {
@@ -84,7 +84,7 @@ namespace CRM.Client.Controllers
         [Consumes(MediaTypeNames.Application.Json)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> Update(string id, UserUpdateCommand notification)
+        public async Task<IActionResult> UpdateAsync(string id, UserUpdateCommand notification)
         {
             notification.UserId = id;
             await _mediator.Publish(notification);
@@ -94,7 +94,7 @@ namespace CRM.Client.Controllers
 
         [HttpDelete("{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
-        public async Task<IActionResult> Remove(string id)
+        public async Task<IActionResult> RemoveAsync(string id)
         {
             await _mediator.Publish(new UserRemoveCommand
             {

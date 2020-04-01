@@ -16,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\CRM.Client\CRM.Client.csproj" />
     <ProjectReference Include="..\CRM.Persistence.Database\CRM.Persistence.Database.csproj" />
     <ProjectReference Include="..\CRM.Service.EventHandler\CRM.Service.EventHandler.csproj" />
     <ProjectReference Include="..\CRM.Service.Query\CRM.Service.Query.csproj" />

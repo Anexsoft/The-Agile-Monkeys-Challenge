@@ -32,7 +32,7 @@ namespace CRM.Client.Controllers
 
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public async Task<DataCollection<CustomerDto>> GetAll(int page = 1, int take = 10)
+        public async Task<DataCollection<CustomerDto>> GetAllAsync(int page = 1, int take = 10)
         {
             return await _customerQueryService.GetAllAsync(page, take);
         }
@@ -56,8 +56,15 @@ namespace CRM.Client.Controllers
         [Consumes(MediaTypeNames.Application.Json)]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> Create(CustomerCreateCommand notification)
+        public async Task<IActionResult> CreateAsync(CustomerCreateCommand notification)
         {
+            /* ModeState validation is automatic with ApiController
+             * but I need this to replicate bad request status in my unit case. */
+            if (!ModelState.IsValid) 
+            {
+                return BadRequest(ModelState);
+            }
+
             var entryId = await _mediator.Send(notification);
 
             return CreatedAtRoute(
@@ -71,7 +78,7 @@ namespace CRM.Client.Controllers
         [Consumes(MediaTypeNames.Application.Json)]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> Update(int id, CustomerUpdateCommand notification)
+        public async Task<IActionResult> UpdateAsync(int id, CustomerUpdateCommand notification)
         {
             notification.CustomerId = id;
             await _mediator.Publish(notification);
@@ -81,7 +88,7 @@ namespace CRM.Client.Controllers
 
         [HttpDelete("{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
-        public async Task<IActionResult> Remove(int id)
+        public async Task<IActionResult> RemoveAsync(int id)
         {
             await _mediator.Publish(new CustomerRemoveCommand { 
                 CustomerId = id
@@ -92,7 +99,7 @@ namespace CRM.Client.Controllers
 
         [HttpPut("{id}/image")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
-        public async Task<IActionResult> Upload(int id, IFormFile file)
+        public async Task<IActionResult> UploadAsync(int id, IFormFile file)
         {
             await _mediator.Publish(new CustomerImageUploadCommand
             {

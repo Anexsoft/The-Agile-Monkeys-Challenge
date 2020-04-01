@@ -12,13 +12,13 @@ The CRM service is an API for customers' management.
 - [x] Create a new customer using validation criteria and reference who created it
 - [x] Update a customer using validation criteria and reference who updated it
 - [x] Delete a customer
-- [ ] Upload an image
+- [X] Upload an image
 - [ ] Authorization & Authentication
 - [x] SQL Injection
 - [X] XSS Prevention
 
 ### Extra Requirements
-- [ ] Unit test
+- [X] Unit test
 - [ ] OAuth
 - [ ] Continuous Deployment
 - [ ] Docker/Vagrant or similar
