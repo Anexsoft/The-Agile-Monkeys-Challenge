@@ -26,5 +26,9 @@
     <ProjectReference Include="..\CRM.Service.Query\CRM.Service.Query.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\images\" />
+  </ItemGroup>
+
 
 </Project>
