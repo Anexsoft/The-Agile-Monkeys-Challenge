@@ -32,7 +32,7 @@ The CRM service is an API for customers' management.
 ## Newcomers: ¡How to start!
 Before to start you need to make a litle configuration in the project.
 
-### 1. Clonse the repository into your pc
+### 1. Clone the repository into your pc
 Choose your folder and run the next command to clone the repository.
 
 ```
