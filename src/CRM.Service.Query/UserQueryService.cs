@@ -3,6 +3,7 @@ using CRM.Persistence.Database;
 using CRM.Service.Query.DTOs;
 using CRM.Service.Query.Extensions.Paging;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -17,11 +18,14 @@ namespace CRM.Service.Query
     public class UserQueryService : IUserQueryService
     {
         private readonly ApplicationDbContext _context;
+        private readonly ILogger<UserQueryService> _logger;
 
         public UserQueryService(
-            ApplicationDbContext context)
+            ApplicationDbContext context,
+            ILogger<UserQueryService> logger)
         {
             _context = context;
+            _logger = logger;
         }
 
         public async Task<DataCollection<UserDto>> GetAllAsync(int page, int take)
@@ -39,6 +43,7 @@ namespace CRM.Service.Query
 
             if (entry == null) 
             {
+                _logger.LogWarning($"The user wasn't found by userId: {id}");
                 return null;
             }
 

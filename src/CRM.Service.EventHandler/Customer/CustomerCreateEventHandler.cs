@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace CRM.Service.EventHandler.Customer
 {
-    public class CustomerEventHandler :
+    public class CustomerCreateEventHandler :
         IRequestHandler<CustomerCreateCommand, int>
     {
         private readonly ApplicationDbContext _context;
 
-        public CustomerEventHandler(
+        public CustomerCreateEventHandler(
             ApplicationDbContext context)
         {
             _context = context;

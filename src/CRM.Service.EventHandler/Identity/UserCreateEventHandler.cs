@@ -40,7 +40,7 @@ namespace CRM.Service.EventHandler.Identity
             {
                 var error = result.Errors.First().Description;
 
-                _logger.LogWarning($"User could not be created by ${entry.UserName}");
+                _logger.LogWarning($"User couldn't be created by ${entry.UserName}");
                 _logger.LogError(error);
 
                 throw new UserCreationException(error);

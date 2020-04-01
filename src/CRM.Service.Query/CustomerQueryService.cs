@@ -21,10 +21,10 @@ namespace CRM.Service.Query
         private readonly ILogger<CustomerQueryService> _logger;
 
         public CustomerQueryService(
-            ApplicationDbContext applicationDbContext,
+            ApplicationDbContext context,
             ILogger<CustomerQueryService> logger)
         {
-            _context = applicationDbContext;
+            _context = context;
             _logger = logger;
         }
 
