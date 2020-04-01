@@ -50,7 +50,7 @@ Change the connection string located in appsetting.json for your connection stri
 * Open Nuget Console and choose CRM.Persistence.Database project.
 * Run update-database command.
 
-### 5. Insert default user and role into the database
+### 5. Insert default user and its role into the database
 ```
 INSERT [dbo].[AspNetUsers] ([Id], [UserName], [NormalizedUserName], [Email], [NormalizedEmail], [EmailConfirmed], [PasswordHash], [SecurityStamp], [ConcurrencyStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEnd], [LockoutEnabled], [AccessFailedCount], [Name], [Surname]) VALUES (N'1b5d5d2c-5d81-4c03-88c8-96585ed41d04', N'erodriguezp105@gmail.com', N'ERODRIGUEZP105@GMAIL.COM', N'erodriguezp105@gmail.com', N'ERODRIGUEZP105@GMAIL.COM', 0, N'AQAAAAEAACcQAAAAEKhBafzFgUkxOwa7thkJwXW6A5rcyazwKC+qKoySW8QLG8S2L3Kc+eCQeUHkWA0kqg==', N'ULMOVOWCNRCOC3ZKPND7R4COYJNXQS6L', N'a16ab8a4-93b4-495e-a765-a9f65d1ae5dc', NULL, 0, 0, NULL, 1, 0, N'Eduardo', N'Rodríguez Patiño')
 GO
@@ -84,5 +84,10 @@ To test any endpoint you need to generate a valid access token. By default, our 
 Don't use this token, is only an example.
 
 `eyJhbGciOiJSUzI1NiIsImtpZCI6IkowcTdISDJ5VFNfNTdvaUlQbHh0c0EiLCJ0eXAiOiJhdCtqd3QifQ.eyJuYmYiOjE1ODU3NTg4MDksImV4cCI6MTU4NTc2MjQwOSwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAwMCIsImF1ZCI6IkNSTS5BcGkiLCJjbGllbnRfaWQiOiJyby5jbGllbnQiLCJzdWIiOiI3NjViMTA2Ny04MzBmLTRmMjEtYTgwNi1lYWJmZTkwMDIzN2EiLCJhdXRoX3RpbWUiOjE1ODU3NTg4MDksImlkcCI6ImxvY2FsIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IlRlc3QgdXNlciIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL3N1cm5hbWUiOiJTdXJuYW1lIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvZW1haWxhZGRyZXNzIjoidGVzdEBhZG1pbi5jb20iLCJzY29wZSI6WyJDUk0uQXBpIl0sImFtciI6WyJwd2QiXX0.CXS1TYnRo2QGtRIxWPkh8Boet5TEeyccFl9KMQgPbqG571f57-0dlhobbYnzWXdOal3weYYe1g1Nay1TqmL__d33HjndVc3TTG3kHFk644LtGbqrvccC1QBqgFsvUw-Lo0EEAEkULyE2RceHHMnqk0Gvrt0wcsUZjAoRb2pZVj_gPoxPnAdv6kkMMOAm6sLFYRn-No4ECcJvSqGIK88m19GD7fWs3z2MvaYWzp-PuHf8UJVB-jKfpYDY6SrdGhYyWhZiZ6xCYfVrtnlrVHrWso1SxYYCNxq1vDGGM4HQ6x4tx40FhWu9CzXj0Sn8QRVeKh6upJgWIisUXgVhbgFzrA`
+
+### Deployment
+To deploy the project just make a push, our pipeline is already configure in Azure DevOps.
+
+The deployment will to run build and test process.
 
 ¡Happy Code 💪!
