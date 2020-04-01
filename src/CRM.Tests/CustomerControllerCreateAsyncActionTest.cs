@@ -1,4 +1,4 @@
-﻿using CRM.Client.Controllers;
+﻿using CRM.Api.Controllers;
 using CRM.Service.EventHandler.Customer.Commands;
 using CRM.Service.Query;
 using CRM.Service.Query.DTOs;

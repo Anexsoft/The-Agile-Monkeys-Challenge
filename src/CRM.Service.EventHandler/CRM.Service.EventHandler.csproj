@@ -12,6 +12,7 @@
   <ItemGroup>
     <ProjectReference Include="..\CRM.Common.File\CRM.Common.File.csproj" />
     <ProjectReference Include="..\CRM.Common.Mapper\CRM.Common.Mapper.csproj" />
+    <ProjectReference Include="..\CRM.Common.Token\CRM.Common.Token.csproj" />
     <ProjectReference Include="..\CRM.Common.Validator\CRM.Common.Validator.csproj" />
     <ProjectReference Include="..\CRM.Persistence.Database\CRM.Persistence.Database.csproj" />
   </ItemGroup>

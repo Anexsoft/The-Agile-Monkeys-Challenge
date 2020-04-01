@@ -1,10 +1,9 @@
-﻿using CRM.Service.EventHandler.Identity.Responses;
-using MediatR;
+﻿using MediatR;
 using System.ComponentModel.DataAnnotations;
 
 namespace CRM.Service.EventHandler.Identity.Commands
 {
-    public class UserLoginCommand : IRequest<IdentityAccess>
+    public class UserLoginCommand : IRequest<string>
     {
         [Required]
         public string UserName { get; set; }
